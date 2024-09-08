@@ -6,8 +6,13 @@ export async function inserirListaCarros(carros) {
     values (?, ?, ?, ?, ?, ?);
     `;
 
-    let resposta = await connection.query(comando, [marca.descricao, ano.numero, preco.valor,
-    carros.imagem, inclusao.data])
+    let resposta = await connection.query(comando, [
+        carros.marca, 
+        carros.modelo,
+        carros.ano, 
+        carros.preco,
+        carros.img, 
+    ]);
 
     let marca = resposta[0]
 
